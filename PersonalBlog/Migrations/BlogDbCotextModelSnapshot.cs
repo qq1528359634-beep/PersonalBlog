@@ -10,7 +10,7 @@ using PersonalBlog.Data;
 
 namespace PersonalBlog.Migrations
 {
-    [DbContext(typeof(BlogDbCotext))]
+    [DbContext(typeof(BlogDbContext))]
     partial class BlogDbCotextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

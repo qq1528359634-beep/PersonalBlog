@@ -3,9 +3,9 @@ using PersonalBlog.Models;
 
 namespace PersonalBlog.Data
 {
-    public class BlogDbCotext : DbContext
+    public class BlogDbContext : DbContext
     {
-        public BlogDbCotext(DbContextOptions<BlogDbCotext> options) : base(options)
+        public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
         {
             
         }

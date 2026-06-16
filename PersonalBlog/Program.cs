@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<PostService>();
-builder.Services.AddDbContext<BlogDbCotext>(options =>
+builder.Services.AddDbContext<BlogDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");
     options.UseNpgsql(connectionString);

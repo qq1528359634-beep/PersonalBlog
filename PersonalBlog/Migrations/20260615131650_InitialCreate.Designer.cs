@@ -11,7 +11,7 @@ using PersonalBlog.Data;
 
 namespace PersonalBlog.Migrations
 {
-    [DbContext(typeof(BlogDbCotext))]
+    [DbContext(typeof(BlogDbContext))]
     [Migration("20260615131650_InitialCreate")]
     partial class InitialCreate
     {

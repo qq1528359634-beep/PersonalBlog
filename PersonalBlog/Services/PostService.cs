@@ -6,9 +6,9 @@ namespace PersonalBlog.Services
 {
     public class PostService
     {
-        private readonly BlogDbCotext _Context;
+        private readonly BlogDbContext _Context;
 
-        public PostService(BlogDbCotext Context)
+        public PostService(BlogDbContext Context)
         {
             this._Context = Context;
         }
