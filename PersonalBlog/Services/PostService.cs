@@ -14,7 +14,7 @@ namespace PersonalBlog.Services
         }
 
 
-        public async Task<List<Post>> GetPublishedPosts()
+        public async Task<List<Post>> GetPublishedPostsAsync()
         {
             return await _Context.Posts
                 .Where(p => p.IsPublished)
