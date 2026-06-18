@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/blog"
 @model PersonalBlog.Pages.Posts.IndexModel
 <h1>PersonalBlog</h1>
     @if (!Model.Posts.Any())
@@ -9,7 +9,12 @@
 {
     @foreach (var post in Model.Posts)
     {
-       
+       <article>
+           <h2><a asp-page="./Detail" asp-route-slug="@post.Slug">
+               @post.Title
+           </a></h2>
+           <time>@post.CreatedAt.ToString("yyyy-mm-dd")</time>
+       </article>
 
     }
 
