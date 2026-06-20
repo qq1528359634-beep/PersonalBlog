@@ -1,0 +1,31 @@
+﻿@page "{slug}"
+@model PersonalBlog.Pages.Posts.DetailModel
+<!--show post-->
+<article>
+    <h1>@Model.Post.Title</h1>
+    <time>@Model.Post.CreatedAt.ToString("yyyy-mm-dd")</time>
+
+    <div id="post-content">
+        @Html.Raw(Model.Post.Content)
+    </div>
+</article>
+
+<!--Show the comment-->
+<section id="comment-section">
+    <h2>Comment</h2>
+    <div id="comment-list">
+        <p>Comments are Onloading!</p>
+    </div>
+
+    <!--Input the comment-->
+    <textarea id="comment-content" placeholder="Input your comments!"></textarea>
+    <!--JavaScript待完成-->
+    <button onclick="submitComment('@Model.Post.Slug')">SubmitComment</button>
+</section>
+
+@section Scripts{
+    <script src="~-js/comments.js"></script>
+    <script>
+        loadcomments('@Model.Post.Slug')
+    </script>
+}

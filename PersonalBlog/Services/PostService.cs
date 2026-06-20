@@ -13,7 +13,7 @@ namespace PersonalBlog.Services
             this._Context = Context;
         }
 
-
+        //Get all Publishde Posts
         public async Task<List<Post>> GetPublishedPostsAsync()
         {
             return await _Context.Posts
@@ -22,28 +22,27 @@ namespace PersonalBlog.Services
                 .ToListAsync();
         }
 
-        //找寻某篇文章 
-        //あるpostを特定する
-        public async Task<Post?> GetPostBySlug(string slug)
+       //Get  a Published  Post by slug
+        public async Task<Post?> GetPostBySlugAsync(string slug)
         {
             return await _Context.Posts
                 .FirstOrDefaultAsync(p => p.Slug == slug && p.IsPublished);
         }
 
-        //新增文章
+        //Create Post
         public async Task CreatPostAsync(Post post)
         {
             _Context.Posts.Add(post);
             await _Context.SaveChangesAsync();
         }
-        //更新文章
+        //Update Post
         public async Task UpdatePostAsync(Post post)
         {
             post.UpdatedAt = DateTime.UtcNow;
             _Context.Update(post);
             await _Context.SaveChangesAsync();
         }
-        //删除文章
+        //delete Post
         public async Task DeletePostAsync(int id)
         {
             var post =await _Context.Posts.FindAsync(id);
@@ -52,6 +51,13 @@ namespace PersonalBlog.Services
                 _Context.Posts.Remove(post);
              await _Context.SaveChangesAsync();
             }
+        }
+        //Get all Posts
+        public  async Task<List<Post>> GetAllPostsAsync()
+        {
+            return await _Context.Posts
+                .OrderByDescending(p => p.CreatedAt)
+                .ToListAsync();
         }
 
     }
