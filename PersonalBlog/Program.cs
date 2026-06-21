@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<PostService>();
+builder.Services.AddScoped<CommentServices>();
 builder.Services.AddDbContext<BlogDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");

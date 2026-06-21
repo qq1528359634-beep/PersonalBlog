@@ -8,7 +8,7 @@
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
 
 
-        //Foreign references to Post
+        //Foreign key references to Post
         public int PostId { get; set; }
         public Post post { get; set; } = default!;
     }
