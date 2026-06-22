@@ -14,14 +14,15 @@
 <section id="comment-section">
     <h2>Comment</h2>
     <div id="comment-list">
-        <p>Comments are Onloading!</p>
+        <p>Comments are Onloading...</p>
     </div>
-
+    <div id="comment-form">
     <!--Input the comment-->
     <input type="text" id="comment-author" placeholder="Your name"/>
     <textarea id="comment-content" placeholder="Input your comments!"></textarea>
     <!--JavaScript-->
     <button onclick="submitComment('@Model.Post.Slug')">SubmitComment</button>
+    </div>
 </section>
 
 <!--Automatically load this script when the page loads-->
