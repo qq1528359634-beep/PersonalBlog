@@ -1,7 +1,7 @@
 ﻿
 
 // load comments
-async function LoadComments(slug) {
+async function loadComments(slug) {
     const res = await fetch(`/api/comments?slug=${slug}`);
     const comments = await res.json();
 
@@ -20,3 +20,20 @@ async function LoadComments(slug) {
 }
 
 //submit comments
+async function submitComment(slug) {
+    const authorName = document.getElementById('comment-author').value.trim();
+    const content = document.getElementById('comment-content').value.trim();
+    if (!content || !author) {
+        alert('Please input author name and content!');
+        return;
+    }
+    await fetch('/api/comments', {
+        method: 'Post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ authorName, content, slug })
+    });
+    //clean up textarea
+    document.getElementById('comment-author').value = '';
+    document.getElementById('comment-content').value = '';
+    await loadComments(slug);
+}

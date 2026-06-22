@@ -3,7 +3,7 @@
 <!--show post-->
 <article>
     <h1>@Model.Post.Title</h1>
-    <time>@Model.Post.CreatedAt.ToString("yyyy-mm-dd")</time>
+    <time>@Model.Post.CreatedAt.ToString("yyyy-MM-dd")</time>
 
     <div id="post-content">
         @Html.Raw(Model.Post.Content)
@@ -18,14 +18,16 @@
     </div>
 
     <!--Input the comment-->
+    <input type="text" id="comment-author" placeholder="Your name"/>
     <textarea id="comment-content" placeholder="Input your comments!"></textarea>
-    <!--JavaScript待完成-->
+    <!--JavaScript-->
     <button onclick="submitComment('@Model.Post.Slug')">SubmitComment</button>
 </section>
 
+<!--Automatically load this script when the page loads-->
 @section Scripts{
-    <script src="~-js/comments.js"></script>
+    <script src="~/js/comments.js"></script>
     <script>
-        loadcomments('@Model.Post.Slug')
+        loadComments('@Model.Post.Slug')
     </script>
 }
