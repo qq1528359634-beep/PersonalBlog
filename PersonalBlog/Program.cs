@@ -17,6 +17,16 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");
     options.UseNpgsql(connectionString);
 });
+
+builder.Services.AddAuthentication("BlogCookies")
+    .AddCookie("BlogCookies", options =>
+    {
+        options.LoginPath = "/Admin/Login";
+        options.LogoutPath = "/Admin/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,7 +37,9 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuthentication();//Who you are
+
+app.UseAuthorization();//do you have authorization
 
 app.MapRazorPages();
 
