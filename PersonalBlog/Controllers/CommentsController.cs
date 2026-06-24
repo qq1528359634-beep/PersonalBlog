@@ -10,9 +10,9 @@ public record CreateCommentDto(string Slug, string AuthorName, string Content);
 [Route("api/[controller]")]
 public class CommentsController : ControllerBase
 {
-    private readonly CommentServices _commentServices;
+    private readonly CommentService _commentServices;
 
-    public CommentsController(CommentServices commentServices)
+    public CommentsController(CommentService commentServices)
     {
         this._commentServices = commentServices;
     }

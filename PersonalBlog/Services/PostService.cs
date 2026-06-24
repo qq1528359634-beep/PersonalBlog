@@ -1,10 +1,11 @@
 ﻿using PersonalBlog.Data;
 using PersonalBlog.Models;
 using Microsoft.EntityFrameworkCore;
+using PersonalBlog.Services.IServices;
 
 namespace PersonalBlog.Services
 {
-    public class PostService
+    public class PostService : IPostService
     {
         private readonly BlogDbContext _Context;
 
@@ -22,7 +23,7 @@ namespace PersonalBlog.Services
                 .ToListAsync();
         }
 
-       //Get  a Published  Post by slug
+        //Get  a Published  Post by slug
         public async Task<Post?> GetPostBySlugAsync(string slug)
         {
             return await _Context.Posts
@@ -45,15 +46,15 @@ namespace PersonalBlog.Services
         //delete Post
         public async Task DeletePostAsync(int id)
         {
-            var post =await _Context.Posts.FindAsync(id);
+            var post = await _Context.Posts.FindAsync(id);
             if (post != null)
             {
                 _Context.Posts.Remove(post);
-             await _Context.SaveChangesAsync();
+                await _Context.SaveChangesAsync();
             }
         }
         //Get all Posts
-        public  async Task<List<Post>> GetAllPostsAsync()
+        public async Task<List<Post>> GetAllPostsAsync()
         {
             return await _Context.Posts
                 .OrderByDescending(p => p.CreatedAt)

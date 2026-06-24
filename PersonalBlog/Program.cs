@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PersonalBlog.Data;
 using Scalar.AspNetCore;
 using PersonalBlog.Services;
+using PersonalBlog.Services.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddOpenApi();
-builder.Services.AddScoped<PostService>();
-builder.Services.AddScoped<CommentServices>();
+builder.Services.AddScoped<IPostService,PostService>();
+builder.Services.AddScoped<ICommentService,CommentService>();
 builder.Services.AddDbContext<BlogDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");
