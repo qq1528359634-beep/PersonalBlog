@@ -2,14 +2,15 @@
 using PersonalBlog.Models;
 using Microsoft.EntityFrameworkCore;
 using PersonalBlog.Controllers;
+using PersonalBlog.Services.IServices;
 
 namespace PersonalBlog.Services
 {
-    public class CommentServices
+    public class CommentService:ICommentService
     {
         private readonly BlogDbContext _context;
 
-        public CommentServices(BlogDbContext context)
+        public CommentService(BlogDbContext context)
         {
             this._context = context;
         }

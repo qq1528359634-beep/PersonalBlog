@@ -2,7 +2,7 @@
 
 namespace PersonalBlog.Services.IServices
 {
-    public interface ICommentServices
+    public interface ICommentService
     {
         //Get the comments of the  post by slug
         Task<List<Object>> GetPostCommentsBySlugAsync(string slug);
