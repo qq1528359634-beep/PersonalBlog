@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 
 namespace PersonalBlog.Pages.Admin
 {
@@ -22,6 +24,21 @@ namespace PersonalBlog.Pages.Admin
                 ErrorMessage = "unCorrect password!";
                 return Page();
             }
+
+            //Create login credentials
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name,"Admin"),
+                new Claim(ClaimTypes.Role,"Admin"),
+
+            };
+            //Create login credentials
+            var identity = new ClaimsIdentity(claims,"BlogCookies");
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync("BlogCookies",principal);
+            return RedirectToPage("/Admin/Index");
+
         }
     }
 }
