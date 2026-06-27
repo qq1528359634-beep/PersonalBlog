@@ -18,7 +18,7 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");
     options.UseNpgsql(connectionString);
 });
-
+//The AddAuthentication service has been configured.
 builder.Services.AddAuthentication("BlogCookies")
     .AddCookie("BlogCookies", options =>
     {

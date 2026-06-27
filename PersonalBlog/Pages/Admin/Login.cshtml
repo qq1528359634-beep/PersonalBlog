@@ -1,4 +1,11 @@
 ﻿@page
 @model PersonalBlog.Pages.Admin.LoginModel
-@{
+<h1>Administrator Login</h1>
+@if(Model.ErrorMessage!=null)
+{
+    <p style="color:red">@Model.ErrorMessage</p>
 }
+<form method="post">
+<input type="password" asp-for="PassWord" placeholder="Please enter password !" />
+<button type="submit">Login</button>
+</form>
