@@ -21,7 +21,7 @@ namespace PersonalBlog.Pages.Admin
             var correctPassWord = _config["AdminPassword"];
             if (Password!=correctPassWord)
             {
-                ErrorMessage = "unCorrect password!";
+                ErrorMessage = "incorrect password!";
                 return Page();
             }
 
