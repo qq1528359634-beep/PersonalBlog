@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using PersonalBlog.Data;
 using Scalar.AspNetCore;
 using PersonalBlog.Services;
-using PersonalBlog.Services.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 

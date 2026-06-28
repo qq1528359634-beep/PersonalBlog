@@ -1,6 +1,6 @@
 ﻿using PersonalBlog.Controllers;
 
-namespace PersonalBlog.Services.IServices
+namespace PersonalBlog.Services
 {
     public interface ICommentService
     {

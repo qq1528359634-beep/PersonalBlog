@@ -1,7 +1,6 @@
 ﻿using PersonalBlog.Data;
 using PersonalBlog.Models;
 using Microsoft.EntityFrameworkCore;
-using PersonalBlog.Services.IServices;
 
 namespace PersonalBlog.Services
 {

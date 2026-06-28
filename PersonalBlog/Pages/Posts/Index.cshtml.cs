@@ -7,9 +7,9 @@ namespace PersonalBlog.Pages.Posts
 {
     public class IndexModel : PageModel
     {
-        private readonly PostService _postService;
+        private readonly IPostService _postService;
 
-        public IndexModel(PostService postService)
+        public IndexModel(IPostService postService)
         {
             this._postService = postService;
         }
