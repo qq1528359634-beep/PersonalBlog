@@ -1,0 +1,22 @@
+﻿@page
+@model PersonalBlog.Pages.Admin.CreateModel
+<h1>Create New Post</h1>
+<form method="Post">
+    <div>
+        <label asp-for="Post.Title">Title</label>
+        <input asp-for="Post.Title" placeholder="Post Title"/>
+        <span asp-validation-for="Post.Title"></span>
+    </div>
+    <div>
+        <label asp-for="Post.Content">Content(html support)</label>
+        <textarea asp-for="Post.Content" rows="20" placeholder="Write your Post..."></textarea>
+    </div>
+    <div>
+        <label asp-for="Post.IsPublished">
+            <input asp-for="Post.IsPublished" type="checkbox"/>
+            Publish directly (if not checked, save as draft)
+        </label>
+    </div>
+    <button type="submit">submit</button>
+    <a asp-page="./Index">cancel</a>
+</form>
