@@ -1,0 +1,8 @@
+﻿@page "{id：int}"
+@model PersonalBlog.Pages.Admin.EditModel
+<h1>Edit a Post</h1>
+<form method="post">
+    <input type="hidden" asp-for="Post.Id" />
+    <input type="hidden" asp-for="Post.Slug"/>
+    <input type="hidden" asp-for="Post.CreatedAt"/>
+</form>

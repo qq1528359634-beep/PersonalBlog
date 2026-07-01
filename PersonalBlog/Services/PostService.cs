@@ -28,7 +28,12 @@ namespace PersonalBlog.Services
             return await _Context.Posts
                 .FirstOrDefaultAsync(p => p.Slug == slug && p.IsPublished);
         }
-
+        //Get a Post by Id
+        public async Task<Post?> GetPostByIdAsync(int id)
+        {
+            return await _Context.Posts
+                .FindAsync(id);
+        }
         //Create Post
         public async Task CreatPostAsync(Post post)
         {

@@ -8,7 +8,9 @@ namespace PersonalBlog.Services
         Task DeletePostAsync(int id);
         Task<List<Post>> GetAllPostsAsync();
         Task<Post?> GetPostBySlugAsync(string slug);
+        Task<Post?> GetPostByIdAsync(int id);
         Task<List<Post>> GetPublishedPostsAsync();
         Task UpdatePostAsync(Post post);
+       
     }
 }
