@@ -44,6 +44,12 @@ namespace PersonalBlog.Services
         public async Task UpdatePostAsync(Post post)
         {
             post.UpdatedAt = DateTime.UtcNow;
+            //The "Edit" page submits the entire Post form back.
+            //The "CreatedAt" field is passed back from the hidden field.
+            //After being transmitted through the HTML form,
+            //the Kind of the DateTime has changed to "Unspecified".
+            //so should change it to Utc
+            post.CreatedAt = DateTime.SpecifyKind(post.CreatedAt, DateTimeKind.Utc);
             _Context.Update(post);
             await _Context.SaveChangesAsync();
         }

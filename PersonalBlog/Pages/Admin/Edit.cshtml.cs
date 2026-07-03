@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PersonalBlog.Models;
@@ -5,6 +6,7 @@ using PersonalBlog.Services;
 
 namespace PersonalBlog.Pages.Admin
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly IPostService _postService;

@@ -10,9 +10,9 @@ public record CreateCommentDto(string Slug, string AuthorName, string Content);
 [Route("api/[controller]")]
 public class CommentsController : ControllerBase
 {
-    private readonly CommentService _commentServices;
+    private readonly ICommentService _commentServices;
 
-    public CommentsController(CommentService commentServices)
+    public CommentsController(ICommentService commentServices)
     {
         this._commentServices = commentServices;
     }
@@ -20,7 +20,7 @@ public class CommentsController : ControllerBase
     //Get comments by slug
     //api/comments?slug=first-post
     [HttpGet]
-    public async Task<IActionResult> GetComments([FromForm] string slug)
+    public async Task<IActionResult> GetComments([FromQuery] string slug)
     {
         var comments = await _commentServices.GetPostCommentsBySlugAsync(slug);
         return Ok(comments);
@@ -29,7 +29,7 @@ public class CommentsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreatComment([FromBody] CreateCommentDto dto)
     {
-        if (!string.IsNullOrWhiteSpace(dto.Content) || !string.IsNullOrWhiteSpace(dto.AuthorName))
+        if (string.IsNullOrWhiteSpace(dto.Content) || string.IsNullOrWhiteSpace(dto.AuthorName))
         {
             return BadRequest("Author name and Content can not be empty!");
         }

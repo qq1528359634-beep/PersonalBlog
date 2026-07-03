@@ -19,8 +19,9 @@
                 <td>@post.Title</td>
                 <td>@post.IsPublished</td>
                 <td>@post.CreatedAt</td>
+                <td>@post.UpdatedAt</td>
                 <td>
-                    <a asp-page="./Edit" asp-route-itemid="@post.Id">Edit</a>
+                    <a asp-page="./Edit" asp-route-id="@post.Id">Edit</a>
                 </td>
             </tr>
         }

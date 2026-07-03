@@ -35,6 +35,9 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
+
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();//Who you are

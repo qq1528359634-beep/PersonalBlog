@@ -1,8 +1,31 @@
-﻿@page "{id：int}"
+﻿@page "{id:int}"
 @model PersonalBlog.Pages.Admin.EditModel
 <h1>Edit a Post</h1>
 <form method="post">
     <input type="hidden" asp-for="Post.Id" />
-    <input type="hidden" asp-for="Post.Slug"/>
-    <input type="hidden" asp-for="Post.CreatedAt"/>
+    <input type="hidden" asp-for="Post.Slug" />
+    <input type="hidden" asp-for="Post.CreatedAt" />
+    <div>
+        <label asp-for="Post.Title">Title</label>
+        <input asp-for="Post.Title" />
+        <span asp-validation-for="Post.Title"></span>
+    </div>
+    <div>
+        <label asp-for="Post.Content">Content</label>
+        <textarea asp-for="Post.Content" rows="20"></textarea>
+    </div>
+    <div>
+        <label asp-for="Post.IsPublished">
+            <input asp-for="Post.IsPublished" type="checkbox" />
+            Publish
+        </label>
+    </div>
+    <button type="submit">Submit</button>
+    <a asp-page="./Index">Cancel</a>
+</form>
+
+<!--Delete post-->
+<form method="post" asp-page-handler="Delete" asp-route-Id="@Model.Post.Id"
+onsubmit="return confirm('Are you sure delete the post')">
+<button type="submit" style="color:red">Delete Post</button>
 </form>

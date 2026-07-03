@@ -19,7 +19,7 @@ namespace PersonalBlog.Pages.Admin
         [BindProperty]
         public Post Post { get; set; } = new();//new a post before bind
 
-        public async Task<IActionResult> onPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
                 return Page();//keep input content

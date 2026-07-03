@@ -15,7 +15,7 @@ namespace PersonalBlog.Pages.Posts
         }
         public List<Post> Posts { get; set; } = new List<Post>();
 
-        public async Task GetOnAsync()
+        public async Task OnGetAsync()
         {
             Posts = await _postService.GetPublishedPostsAsync();
         }
