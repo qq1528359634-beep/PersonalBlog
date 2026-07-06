@@ -13,9 +13,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IPostService,PostService>();
 builder.Services.AddScoped<ICommentService,CommentService>();
 builder.Services.AddDbContext<BlogDbContext>(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");
-    options.UseNpgsql(connectionString);
+{    //development enviroment
+    //var connectionString = builder.Configuration.GetConnectionString("PersonalBlog");
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 //The AddAuthentication service has been configured.
 builder.Services.AddAuthentication("BlogCookies")
