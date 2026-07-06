@@ -34,11 +34,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
+    app.UseHttpsRedirection();
 }
 
 app.UseStaticFiles();
 
-app.UseHttpsRedirection();
+
 
 app.UseAuthentication();//Who you are
 
