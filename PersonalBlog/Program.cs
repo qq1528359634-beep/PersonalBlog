@@ -28,15 +28,21 @@ builder.Services.AddAuthentication("BlogCookies")
 
 
 var app = builder.Build();
+// 加这段，自动执行迁移
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BlogDbContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-    app.UseHttpsRedirection();
-}
+    {
+        app.MapOpenApi();
+        app.MapScalarApiReference();
+        app.UseHttpsRedirection();
+    }
 
 app.UseStaticFiles();
 
