@@ -10,7 +10,7 @@ async function loadComments(slug) {
         list.innerHTML = '<p>There are not comments</p>';
         return;
     }
-    list.innerHTML = comments.map(c => `
+    list.innerHTML = comments.map(c =>`
        <div class="comments">
             <strong>${c.authorName}</strong>
             <time>${c.createAt}</time>
