@@ -1,6 +1,7 @@
 ﻿@page 
 @model PersonalBlog.Pages.Posts.IndexModel
 <h1>PersonalBlog</h1>
+<a asp-page="/Admin/Login">Administrator Login</a>
     @if (!Model.Posts.Any())
     {
         <p>No articles available</p>
