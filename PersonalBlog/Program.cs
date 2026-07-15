@@ -28,7 +28,7 @@ builder.Services.AddAuthentication("BlogCookies")
 
 
 var app = builder.Build();
-// 加这段，自动执行迁移
+//// 加这段，自动执行迁移
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BlogDbContext>();

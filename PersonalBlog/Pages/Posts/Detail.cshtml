@@ -2,14 +2,9 @@
 @model PersonalBlog.Pages.Posts.DetailModel
 <!--show post-->
 
-<<<<<<< Updated upstream
-    <div id="post-content">
-        @Html.Raw(Model.Post.Content)
-    </div>
-</article>
-<br/>
-<br/>
-<a asp-page="/Posts/Index">Return to the Index</a>
+<br />
+<br />
+<a asp-page="/Posts/Index" >Return to the Posts Index</a>
 <!--Show the comment-->
 <section id="comment-section">
     <h2>Comment</h2>
@@ -24,10 +19,14 @@
         <button onclick="submitComment('@Model.Post.Slug')">SubmitComment</button>
     </div>
 </section>
-=======
+
 <div class="row justify-content-center">
     <div class="col-lg-8">
->>>>>>> Stashed changes
+
+
+<!--Automatically load this script when the page loads-->
+<div class="row justify-content-center">
+    <div class="col-lg-8">
 
         <a asp-page="/Posts/Index" class="btn btn-outline-secondary btn-sm mb-4">← Back to Home</a>
 
@@ -66,9 +65,3 @@
     </div>
 </div>
 
-@section Scripts {
-    <script src="~/js/comments.js"></script>
-    <script>
-        loadComments('@Model.Post.Slug')
-    </script>
-}

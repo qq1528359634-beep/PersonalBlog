@@ -1,8 +1,8 @@
 ﻿@page 
 @model PersonalBlog.Pages.Posts.IndexModel
-<<<<<<< Updated upstream
-<h1>PersonalBlog</h1>
 <a asp-page="/Admin/Login">Administrator Login</a>
+<a asp-page="/Admin/index">AdminPage</a>
+
     @if (!Model.Posts.Any())
     {
         <p>No articles available</p>
@@ -17,8 +17,7 @@
            </a></h2>
            <time>@post.CreatedAt.ToString("yyyy-MM-dd")</time>
        </article>
-=======
->>>>>>> Stashed changes
+
 
 <div class="row justify-content-center">
     <div class="col-lg-8">
@@ -53,5 +52,5 @@
             }
         }
 
-    </div>
-</div>
+}
+
