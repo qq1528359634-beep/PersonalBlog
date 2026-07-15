@@ -40,4 +40,9 @@
 
     </div>
 </div>
-
+@section Scripts {
+    <script src="~/js/comments.js"></script>
+    <script>
+        loadComments('@Model.Post.Slug')
+    </script>
+}
