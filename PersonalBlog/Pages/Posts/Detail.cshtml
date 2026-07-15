@@ -1,29 +1,5 @@
 ﻿@page "{slug}"
 @model PersonalBlog.Pages.Posts.DetailModel
-<!--show post-->
-
-<br />
-<br />
-<a asp-page="/Posts/Index" >Return to the Posts Index</a>
-<!--Show the comment-->
-<section id="comment-section">
-    <h2>Comment</h2>
-    <div id="comment-list">
-        <p>Comments are Onloading...</p>
-    </div>
-    <div id="comment-form">
-    <!--Input the comment-->
-    <input type="text" id="comment-authorName" placeholder="Your name"/>
-    <textarea id="comment-content" placeholder="Input your comments!"></textarea>
-    <!--JavaScript-->
-        <button onclick="submitComment('@Model.Post.Slug')">SubmitComment</button>
-    </div>
-</section>
-
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-
-
 <!--Automatically load this script when the page loads-->
 <div class="row justify-content-center">
     <div class="col-lg-8">

@@ -1,24 +1,5 @@
 ﻿@page 
 @model PersonalBlog.Pages.Posts.IndexModel
-<a asp-page="/Admin/Login">Administrator Login</a>
-<a asp-page="/Admin/index">AdminPage</a>
-
-    @if (!Model.Posts.Any())
-    {
-        <p>No articles available</p>
-    }
-    else
-{
-    @foreach (var post in Model.Posts)
-    {
-       <article>
-           <h2><a asp-page="./Detail" asp-route-slug="@post.Slug">
-               @post.Title
-           </a></h2>
-           <time>@post.CreatedAt.ToString("yyyy-MM-dd")</time>
-       </article>
-
-
 <div class="row justify-content-center">
     <div class="col-lg-8">
 
@@ -51,6 +32,8 @@
                 </div>
             }
         }
+        
+    </div>
+    </div>
 
-}
 
