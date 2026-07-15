@@ -9,9 +9,15 @@
         @Html.Raw(Model.Post.Content)
     </div>
 </article>
+<<<<<<< Updated upstream
 <br/>
 <br/>
 <a asp-page="/Posts/Index">Return to the Index</a>
+=======
+<br />
+<br />
+<a asp-page="/Posts/Index" >Return to the Posts Index</a>
+>>>>>>> Stashed changes
 <!--Show the comment-->
 <section id="comment-section">
     <h2>Comment</h2>
@@ -31,6 +37,6 @@
 @section Scripts{
     <script src="~/js/comments.js"></script>
     <script>
-        loadComments('@Model.Post.Slug')
+        loadComments('@Model.Post.Slug');
     </script>
 }
