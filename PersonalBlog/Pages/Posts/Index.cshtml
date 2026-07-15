@@ -1,5 +1,6 @@
 ﻿@page 
 @model PersonalBlog.Pages.Posts.IndexModel
+<<<<<<< Updated upstream
 <h1>PersonalBlog</h1>
 <<<<<<< Updated upstream
 <a asp-page="/Admin/Login">Administrator Login</a>
@@ -24,3 +25,40 @@
     }
 
 }
+=======
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 mb-0">📝 PersonalBlog</h1>
+            <a asp-page="/Admin/Login" class="btn btn-outline-secondary btn-sm">管理员登录</a>
+        </div>
+
+        @if (!Model.Posts.Any())
+        {
+            <div class="alert alert-secondary text-center">
+                暂无文章
+            </div>
+        }
+        else
+        {
+            @foreach (var post in Model.Posts)
+            {
+                <div class="card mb-3 shadow-sm border-0">
+                    <div class="card-body">
+                        <h2 class="card-title h4 mb-2">
+                            <a asp-page="./Detail" asp-route-slug="@post.Slug" class="text-decoration-none text-dark">
+                                @post.Title
+                            </a>
+                        </h2>
+                        <p class="card-text text-muted small mb-0">
+                            🗓️ @post.CreatedAt.ToString("yyyy-MM-dd")
+                        </p>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+>>>>>>> Stashed changes
