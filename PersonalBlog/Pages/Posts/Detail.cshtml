@@ -1,24 +1,10 @@
 ﻿@page "{slug}"
 @model PersonalBlog.Pages.Posts.DetailModel
 <!--show post-->
-<article>
-    <h1>@Model.Post.Title</h1>
-    <time>@Model.Post.CreatedAt.ToString("yyyy-MM-dd")</time>
 
-<<<<<<< Updated upstream
-    <div id="post-content">
-        @Html.Raw(Model.Post.Content)
-    </div>
-</article>
-<<<<<<< Updated upstream
-<br/>
-<br/>
-<a asp-page="/Posts/Index">Return to the Index</a>
-=======
 <br />
 <br />
 <a asp-page="/Posts/Index" >Return to the Posts Index</a>
->>>>>>> Stashed changes
 <!--Show the comment-->
 <section id="comment-section">
     <h2>Comment</h2>
@@ -34,8 +20,11 @@
     </div>
 </section>
 
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+
 <!--Automatically load this script when the page loads-->
-=======
 <div class="row justify-content-center">
     <div class="col-lg-8">
 
@@ -76,10 +65,3 @@
     </div>
 </div>
 
->>>>>>> Stashed changes
-@section Scripts{
-    <script src="~/js/comments.js"></script>
-    <script>
-        loadComments('@Model.Post.Slug');
-    </script>
-}
