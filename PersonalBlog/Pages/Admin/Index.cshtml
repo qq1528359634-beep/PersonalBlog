@@ -6,7 +6,7 @@
 <a asp-page="./Create">Write a new Post</a>
 <br/>
 <br/>
-<table>
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Title</th>
@@ -20,8 +20,8 @@
             <tr>
                 <td>@post.Title</td>
                 <td>@post.IsPublished</td>
-                <td>@post.CreatedAt</td>
-                <td>@post.UpdatedAt</td>
+                <td>@post.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>@post.UpdatedAt.ToString("yyyy-MM-dd HH:mm")</td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@post.Id">Edit</a>
                 </td>
