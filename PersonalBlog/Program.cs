@@ -25,7 +25,7 @@ builder.Services.AddAuthentication("BlogCookies")
         options.LogoutPath = "/Admin/Logout";
         options.ExpireTimeSpan = TimeSpan.FromDays(7);
     });
-
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 //// 加这段，自动执行迁移
@@ -46,6 +46,8 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
 
 app.UseAuthentication();//Who you are
 

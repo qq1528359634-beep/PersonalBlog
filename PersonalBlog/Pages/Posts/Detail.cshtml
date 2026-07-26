@@ -13,7 +13,7 @@
                     🗓️ <time>@Model.Post.CreatedAt.ToString("yyyy-MM-dd")</time>
                 </p>
                 <div id="post-content" class="fs-5 lh-lg">
-                    @Html.Raw(Model.Post.Content)
+                    @Html.Raw(Model.RenderedContent)
                 </div>
             </div>
         </article>

@@ -14,6 +14,8 @@ namespace PersonalBlog.Pages.Posts
             this._postService = postService;
         }
         public Post Post { get; set; } = default!;
+
+        public string RenderedContent { get; set; } = string.Empty;
         public async Task<IActionResult> OnGetAsync(string slug)
         {
             var post = await _postService.GetPostBySlugAsync(slug);
@@ -22,6 +24,7 @@ namespace PersonalBlog.Pages.Posts
                 return NotFound("The post is not found!");
             }
             Post = post;
+            RenderedContent = _postService.RenderMarkdown(Post.Content);
             return Page();
         }
     }

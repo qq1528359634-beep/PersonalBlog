@@ -11,6 +11,6 @@ namespace PersonalBlog.Services
         Task<Post?> GetPostByIdAsync(int id);
         Task<List<Post>> GetPublishedPostsAsync();
         Task UpdatePostAsync(Post post);
-       
+        string RenderMarkdown(string markdown);
     }
 }

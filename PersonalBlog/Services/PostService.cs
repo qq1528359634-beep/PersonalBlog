@@ -1,7 +1,8 @@
 ﻿using PersonalBlog.Data;
 using PersonalBlog.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Markdig;
+using Markdig.Syntax;
 namespace PersonalBlog.Services
 {
     public class PostService : IPostService
@@ -69,6 +70,15 @@ namespace PersonalBlog.Services
             return await _Context.Posts
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
+        }
+
+        //use markdown
+        public string RenderMarkdown(string markdown)
+        {   //create a pipeline to process markdwon content
+            var pipeline = new MarkdownPipelineBuilder()
+                .UseAdvancedExtensions()
+                .Build();
+            return Markdown.ToHtml(markdown,pipeline);
         }
 
     }

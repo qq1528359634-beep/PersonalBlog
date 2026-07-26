@@ -18,6 +18,7 @@ namespace PersonalBlog.Pages.Admin
         public string? ErrorMessage { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
+         
             var correctPassWord = _config["AdminPassword"];
             if (Password!=correctPassWord)
             {
