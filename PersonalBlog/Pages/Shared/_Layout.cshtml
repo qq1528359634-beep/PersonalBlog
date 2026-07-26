@@ -9,7 +9,25 @@
    <!--hight light-->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-    
+    <style>
+            /* 文章内容区间距压缩 */
+            #post-content p,
+            #post-content pre,
+            #post-content ul,
+            #post-content ol {
+                margin-bottom: 0.5rem; /* Bootstrap 默认是 1rem，压缩一半 */
+            }
+
+            #post-content pre {
+                padding: 0.75rem;
+                background-color: #f6f8fa; /* GitHub 风格的代码背景色 */
+                border-radius: 6px;
+            }
+
+            #post-content li {
+                margin-bottom: 0.25rem;
+            }
+    </style>
 </head>
 <body class="bg-light">
 
