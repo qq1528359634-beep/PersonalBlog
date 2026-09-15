@@ -1,5 +1,8 @@
 ﻿@page
 @model PersonalBlog.Pages.Admin.CreateModel
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"/>
+}
 <h1>Create New Post</h1>
 <form method="Post">
     <div>
@@ -9,7 +12,7 @@
     </div>
     <div>
         <label asp-for="Post.Content">Content(html support)</label>
-        <textarea asp-for="Post.Content" rows="30" class="form-control font-monospace" placeholder="Write your Post..."></textarea>
+        <textarea asp-for="Post.Content" id="editor" rows="30" class="form-control font-monospace" placeholder="Write your Post..."></textarea>
     </div>
     <div>
         <label asp-for="Post.IsPublished">
@@ -20,3 +23,24 @@
     <button type="submit">submit</button>
     <a asp-page="./Index">cancel</a>
 </form>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+    <script>
+        var easyMDE = new EasyMDE({
+            element: document.getElementById("editor"),
+            spellChecker: false,          // 关闭英文拼写检查
+            autosave: {
+                enabled: true,
+                uniqueId: "post-editor",  // 自动保存到浏览器本地
+                delay: 3000,              // 每3秒自动保存一次
+            },
+            toolbar: [
+                "bold", "italic", "heading", "|",
+                "quote", "code", "unordered-list", "ordered-list", "|",
+                "link", "image", "|",
+                "preview", "side-by-side", "fullscreen", "|",
+                "guide"
+            ]
+        });
+    </script>
+}
