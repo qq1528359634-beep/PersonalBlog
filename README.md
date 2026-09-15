@@ -14,15 +14,7 @@ Entity Framework Core / PostgreSQL / Docker
 
 ## 系统架构
 
-Browser
-   ↓
-Razor Pages / Controller
-   ↓
-Service Layer
-   ↓
-Entity Framework Core
-   ↓
-PostgreSQL
+Browser → Razor Pages/Controller → Service Layer → Entity Framework Core → PostgreSQL
 
 ## 我的实现
 
@@ -30,9 +22,7 @@ PostgreSQL
 - 使用 Dependency Injection 管理 Service
 - 使用 EF Core + PostgreSQL 实现数据持久化
 - 使用 Cookie Authentication 实现管理员认证
-- 使用 Markdig 实现 Markdown → HTML
 - 使用 EF Core Migration 管理数据库结构
-- 使用 Docker 进行应用容器化
 
 ## 技术上的实践
 
