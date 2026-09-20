@@ -40,7 +40,7 @@ onsubmit="return confirm('Are you sure delete the post')">
             spellChecker: false,          // 关闭英文拼写检查
             autosave: {
                 enabled: true,
-                uniqueId: "post-editor",  // 自动保存到浏览器本地
+                uniqueId: "post-editor-@Model.Post.Id",  // 自动保存到浏览器本地
                 delay: 3000,              // 每3秒自动保存一次
             },
             toolbar: [
