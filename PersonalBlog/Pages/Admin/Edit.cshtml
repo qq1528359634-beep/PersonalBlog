@@ -24,13 +24,13 @@
         </label>
     </div>
     <button type="submit">Submit</button>
-    <a asp-page="./Index">Cancel</a>
+    <br> <a asp-page="./Index">Cancel</a><br>
+    <br>
 </form>
-
 <!--Delete post-->
 <form method="post" asp-page-handler="Delete" asp-route-Id="@Model.Post.Id"
-onsubmit="return confirm('Are you sure delete the post')">
-<button type="submit" style="color:red">Delete Post</button>
+      onsubmit="return confirm('Are you sure delete the post')">
+    <button type="submit" style="color:red">Delete Post</button>
 </form>
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
