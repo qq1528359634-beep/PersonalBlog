@@ -29,3 +29,5 @@ namespace PersonalBlog.Pages.Posts
         }
     }
 }
+//当前端访问对应页面时，自动调用该页面的后端数据并且绑定参数
+//生成页面回传给前端？
